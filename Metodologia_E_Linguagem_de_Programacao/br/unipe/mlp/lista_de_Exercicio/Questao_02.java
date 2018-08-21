@@ -2,7 +2,7 @@ package br.unipe.mlp.lista_de_Exercicio;
 
 import java.util.Scanner;
 
-public class Questão_02 {
+public class Questao_02 {
 	
 	private static Scanner teclado;
 
@@ -25,7 +25,7 @@ public class Questão_02 {
 		String senhaTeste = teclado.next();
 		
 		if (senhaTeste.equals(senha)) {
-			System.out.println("O resultado da divisão entre " + numero_1 + " / " + numero_2 + " = " + divisao);
+			System.out.println("O resultado da divisï¿½o entre " + numero_1 + " / " + numero_2 + " = " + divisao);
 		}
 		else
 		{

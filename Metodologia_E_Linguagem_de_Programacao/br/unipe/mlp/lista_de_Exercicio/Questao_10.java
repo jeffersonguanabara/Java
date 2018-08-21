@@ -1,6 +1,6 @@
 package br.unipe.mlp.lista_de_Exercicio;
 
-public class Questão_10 {
+public class Questao_10 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
