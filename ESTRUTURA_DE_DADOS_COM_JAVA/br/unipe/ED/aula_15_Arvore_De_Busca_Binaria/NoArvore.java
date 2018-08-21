@@ -1,4 +1,4 @@
-package br.unipe.ED.aula_15_Arvore_De_Busca_Bin·ria;
+package br.unipe.ED.aula_15_Arvore_De_Busca_Binaria;
 
 public class NoArvore {
 
@@ -7,20 +7,20 @@ public class NoArvore {
 	NoArvore esqueda;
 
 	public NoArvore insere(NoArvore arvore, int valorInserido) {
-		// caso a ·rvore n„o tenha filhos, ou seja, nula
+		// caso a √°rvore n√£o tenha filhos, ou seja, nula
 		if (arvore == null) {
 			arvore = new NoArvore();
 			arvore.valor = valorInserido;
 			arvore.esqueda = arvore.direita = null;
 		}
-		// inserir na ·rvore esqueda
+		// inserir na √°rvore esqueda
 		else if (valorInserido < arvore.valor)
 			arvore.esqueda = insere(arvore.esqueda, valorInserido);
-		// inserir na ·rvore direita
+		// inserir na √°rvore direita
 		else
 			arvore.direita = insere(arvore.direita, valorInserido);
 
-		// Caso a ·rvore seja nula, o retorno do mÈtodo È o nÛ que foi inserido.
+		// Caso a √°rvore seja nula, o retorno do m√©todo ÔøΩ o nÔøΩ que foi inserido.
 		return arvore;
 	}
 
@@ -52,28 +52,28 @@ public class NoArvore {
 		else if (arvore.valor < valorRemovido)
 			arvore.direita = remorer(arvore.direita, valorRemovido);
 		else {
-			// 1 - Se o nÛ n„o tem filhos, ele ser· eliminado...
+			// 1 - Se o nÔøΩ nÔøΩo tem filhos, ele serÔøΩ eliminado...
 			if ((arvore.esqueda == null) && (arvore.direita == null))
 				arvore = null;
-			// 2 - Se o nÛ tem filho apenas a direita...
+			// 2 - Se o nÔøΩ tem filho apenas a direita...
 			else if (arvore.esqueda == null) {
 				NoArvore auxiliar = arvore;
 				arvore = arvore.direita;
 			}
-			// 3 - Se o nÛ tem filho apenas a esqueda...
+			// 3 - Se o nÔøΩ tem filho apenas a esqueda...
 			else if (arvore.direita == null) {
 				NoArvore auxiliar = arvore;
 				arvore = arvore.esqueda;
 			}
-			// 4 - Se o nÛ tem os dois filhos...
+			// 4 - Se o nÔøΩ tem os dois filhos...
 			else {
 				NoArvore subesqueda = arvore.esqueda;
 				while (subesqueda.direita != null) {
-					// capturar o maior nÛ da sub·rvore esquerda
+					// capturar o maior nÔøΩ da subÔøΩrvore esquerda
 					subesqueda = subesqueda.direita;
 				}
-				// subesquerda.valor È o maior no da sub·rvore esquerda
-				arvore.valor = subesqueda.valor; // troca as informaÁıes
+				// subesquerda.valor ÔøΩ o maior no da subÔøΩrvore esquerda
+				arvore.valor = subesqueda.valor; // troca as informaÔøΩÔøΩes
 				subesqueda.valor = valorRemovido;
 				arvore.esqueda = remorer(arvore.esqueda, valorRemovido);
 			}

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="src" path="Desbravando_Java_e_Orientacao_a_Objetos"/>
 	<classpathentry kind="src" path="Caelum_FJ11_Orientacao_a_Objetos_Com_Java"/>
@@ -11,5 +15,6 @@
 	<classpathentry kind="src" path="Projetos"/>
 	<classpathentry kind="src" path="Test-Driven_Development_Teste_e_Design_no_Mundo_Real"/>
 	<classpathentry kind="src" path="Use_a_Cabeca_Java"/>
+	<classpathentry kind="src" path="Testes_Automatizados_de_Software"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

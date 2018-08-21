@@ -1,4 +1,4 @@
-package br.unipe.ED.aula_18_Algoritmos_De_Ordenação;
+package br.unipe.ED.aula_18_Algoritmos_De_Ordenacao;
 
 public class Principal {
 

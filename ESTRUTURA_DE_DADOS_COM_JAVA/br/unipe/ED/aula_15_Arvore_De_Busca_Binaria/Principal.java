@@ -1,4 +1,4 @@
-package br.unipe.ED.aula_15_Arvore_De_Busca_Binária;
+package br.unipe.ED.aula_15_Arvore_De_Busca_Binaria;
 
 public class Principal {
 
@@ -19,9 +19,9 @@ public class Principal {
 		NoArvore resultado = abb.busca(abb, 10);
 
 		if (resultado == null) {
-			System.out.println("Não encontrei o nó");
+			System.out.println("NÃ£o encontrei o nÃ³");
 		} else {
-			System.out.println("Encontrei o nó: " + resultado.valor);
+			System.out.println("Encontrei o nÃ³: " + resultado.valor);
 		}
 
 		abb.imprime(abb);
