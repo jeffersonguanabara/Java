@@ -7,7 +7,7 @@ public class Carro {
 	private Banco banco;
 	
 	
-	public double getPreço(Pneu pneu, Motor motor,Banco banco) {
+	public double getPreco(Pneu pneu, Motor motor,Banco banco) {
 		return pneu.getPreco() + motor.getPreco() + banco.getPreco();
 	}
 	

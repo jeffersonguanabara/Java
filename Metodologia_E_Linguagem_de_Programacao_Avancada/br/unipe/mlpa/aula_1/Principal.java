@@ -17,19 +17,19 @@ public class Principal {
 		banco.setPreco(1000.0);
 		motor.setPreco(5000.0);
 		
-		System.out.println("Carro 1, preço: " + carro.getPreço(pneu, motor, banco));
+		System.out.println("Carro 1, pre�o: " + carro.getPreco(pneu, motor, banco));
 		
 		pneu.setPreco(300.0);
 		banco.setPreco(1500.0);
 		motor.setPreco(4000.0);
 		
-		System.out.println("Carro 2, preço: " + carro1.getPreço(pneu, motor, banco));
+		System.out.println("Carro 2, pre�o: " + carro1.getPreco(pneu, motor, banco));
 		
 		pneu.setPreco(209.9);
 		banco.setPreco(900.0);
 		motor.setPreco(6000.0);
 		
-		System.out.println("Carro 3, preço: " + carro2.getPreço(pneu, motor, banco));
+		System.out.println("Carro 3, preço: " + carro2.getPreco(pneu, motor, banco));
 		
 	}
 }
