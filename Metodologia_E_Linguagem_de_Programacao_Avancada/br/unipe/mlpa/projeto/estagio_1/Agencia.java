@@ -19,6 +19,18 @@ public class Agencia {
 		this.contas = new ArrayList<Conta>();
 		this.endereco = endereco;
 	}
+	
+	public Conta acessarConta(int numeroDeConta) {
+		Conta auxiliar = new Conta();
+		for (Conta conta : contas) {
+			if (conta.getNumeroConta() == numeroDeConta) {
+				auxiliar = conta;
+			} else {
+				auxiliar = null;
+			}
+		}
+		return auxiliar;
+	}
 
 	@Override
 	public String toString() {
@@ -51,5 +63,10 @@ public class Agencia {
 
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
-	}	
+	}
+	
+	public long numeroDaContaNaAgencia () {
+		return contas.size() + 1;
+	}
+
 }

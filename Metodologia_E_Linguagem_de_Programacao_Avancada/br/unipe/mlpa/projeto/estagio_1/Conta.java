@@ -71,7 +71,7 @@ public class Conta {
 			System.out.println(sne.getMessage());
 		}
 	}
-
+	
 	public long getNumeroConta() {
 		return numeroConta;
 	}
@@ -115,4 +115,14 @@ public class Conta {
 	public double getSaldo() {
 		return saldo;
 	}
+
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+	
+	
 }

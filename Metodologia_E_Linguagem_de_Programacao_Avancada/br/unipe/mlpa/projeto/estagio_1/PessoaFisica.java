@@ -9,8 +9,8 @@ public class PessoaFisica extends Pessoa {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public PessoaFisica(long cpf, long rg) {
-		super();
+	public PessoaFisica(String nome, float rendaPessoa, int situacaoPessoa, Endereco endereco, long cpf, long rg) {
+		super(nome, rendaPessoa, situacaoPessoa, endereco);
 		this.cpf = cpf;
 		this.rg = rg;
 	}

@@ -1,6 +1,6 @@
 package br.unipe.mlpa.projeto.estagio_1;
 
-public class PessoaJuridica {
+public class PessoaJuridica extends Pessoa{
 
 	private long cnpj;
 
@@ -9,8 +9,8 @@ public class PessoaJuridica {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public PessoaJuridica(long cnpj) {
-		super();
+	public PessoaJuridica(String nome, float rendaPessoa, int situacaoPessoa, Endereco endereco, long cnpj) {
+		super(nome, rendaPessoa, situacaoPessoa, endereco);
 		this.cnpj = cnpj;
 	}
 
