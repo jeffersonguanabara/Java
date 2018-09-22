@@ -11,6 +11,7 @@ public class Agencia {
 	
 	public Agencia() {
 		// TODO Auto-generated constructor stub
+		this.contas = new ArrayList<Conta>();
 	}
 	
 	public Agencia(long numero, List<Conta> contas, Endereco endereco) {

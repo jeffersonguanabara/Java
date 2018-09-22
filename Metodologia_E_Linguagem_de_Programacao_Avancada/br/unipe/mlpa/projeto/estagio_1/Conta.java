@@ -1,6 +1,8 @@
 package br.unipe.mlpa.projeto.estagio_1;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import br.unipe.mlpa.exercicioExcecoes.Exceptions.SaldoNegativoException;
 import br.unipe.mlpa.exercicioExcecoes.Exceptions.ValorException;
@@ -14,9 +16,12 @@ public class Conta {
 	private String senha;
 	private double saldo;
 	private Pessoa pessoa;
+	private Movimento transacao;
+	private List<Movimento> movimentacao;
 	
 	public Conta() {
 		// TODO Auto-generated constructor stub
+		this.movimentacao = new ArrayList<Movimento>();
 	}
 	
 	public Conta(long numeroConta, Date dataAbertura, Date dataFechamento, int situacao, String senha, double saldo, Pessoa pessoa) {
@@ -28,6 +33,7 @@ public class Conta {
 		this.senha = senha;
 		this.saldo = saldo;
 		this.pessoa = pessoa;
+		this.movimentacao = new ArrayList<Movimento>();
 	}
 
 	@Override
@@ -40,9 +46,17 @@ public class Conta {
 	public void sacar(double valor) {
 		try {
 			if (valor > saldo) 
-				throw new SaldoNegativoException("O valor do saldo Ã© menor do que o valor informado!");
-			else
+				throw new SaldoNegativoException("O valor do saldo é menor do que o valor informado!");
+			else {
+				transacao = new Movimento();
+			
+				transacao.setTipo(1);
+				transacao.setDataHoraMovimentacao();
+				transacao.setValMovimento(valor);
+				
 				this.saldo -= valor;
+				this.movimentacao.add(transacao);
+			}	
 		} catch (SaldoNegativoException sne) {
 			System.out.println(sne.getMessage());
 		}
@@ -51,9 +65,18 @@ public class Conta {
 	public void depositar(double valor) {
 		try {
 			if (valor <= 0) 
-				throw new ValorException("NÃ£o Ã© possÃ­vel depositar o valor informado!");
-			else
+				throw new ValorException("Não é possível depositar o valor informado!");
+			else {
+				transacao = new Movimento();
+			
+				transacao.setTipo(2);
+				transacao.setDataHoraMovimentacao();
+				transacao.setValMovimento(valor);
+			
 				this.saldo += valor;
+				this.movimentacao.add(transacao);
+				
+			}
 		} catch (ValorException ve) {
 			System.out.println(ve.getMessage());
 		}
@@ -62,8 +85,17 @@ public class Conta {
 	public void transferir(double valor, Conta conta) {
 		try {
 			if (valor > this.saldo) {
-				throw new SaldoNegativoException("Saldo insulficiente para executar transferÃªncia!");
+				throw new SaldoNegativoException("Saldo insulficiente para executar transferência!");
 			} else {
+				
+				transacao = new Movimento();
+				
+				transacao.setTipo(1);
+				transacao.setDataHoraMovimentacao();
+				transacao.setValMovimento(valor);
+				
+				this.movimentacao.add(transacao);
+				
 				this.sacar(valor);
 				conta.depositar(valor);
 			}
@@ -123,6 +155,11 @@ public class Conta {
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
+
+	public List<Movimento> getMovimentacao() {
+		return movimentacao;
+	}
 	
 	
+		
 }

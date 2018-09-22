@@ -5,8 +5,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.SynchronousQueue;
 
 import br.unipe.mlpa.exercicioExcecoes.Exceptions.AgenciaInexistente;
+import br.unipe.mlpa.exercicioExcecoes.Exceptions.DataIncorreta;
 
 public class Principal {
 	
@@ -59,7 +61,7 @@ public class Principal {
 		} while (opcaoMenu == 4);
 	}
 	
-	private static void cadastrarConta() throws ParseException {
+	private static void cadastrarConta() {
 		
 		conta = new Conta();
 		System.out.println("------------------------------------------------");
@@ -103,7 +105,7 @@ public class Principal {
 		
 	}
 
-	private static Pessoa cadastrarPessoa(int opcaoPessoa) throws ParseException {
+	private static Pessoa cadastrarPessoa(int opcaoPessoa) {
 		
 		if (opcaoPessoa == 1) {
 			pessoa = cadastrarPessoaFisica();
@@ -191,9 +193,14 @@ public class Principal {
 	}
 	
 	private static List<Conta> listarContasDeUmaAgencia() {
-		if (agencia == null)
-			
-		return agencia.getContas();	
+		Agencia aux = null;
+		if (agencia == null) {
+			System.out.println("Agencia indisponível! Tente Cadastrar uma agencia!");
+		    cadastrarConta();
+		} else {
+			aux = agencia;
+		}
+		return aux.getContas();	
 	}
 
 	public static void menuGerenciarContas() {
@@ -217,7 +224,7 @@ public class Principal {
 		Conta conta = agencia.acessarConta(numero);
 		
 		if (conta != null) {
-			movimentacaoConta();
+			menuMovimentarConta();
 		} else {
 			System.out.println("Não existe a conta de número: " + numero);
 			System.out.println("Tente novamente!");
@@ -226,19 +233,70 @@ public class Principal {
 	}
 	
 	private static void movimentacaoConta() {
-		menuMovimentarConta();
 		
+		int opcao = 0;
+		opcao = teclado.nextInt();
+		switch (opcao) {
+		case 1:
+			System.out.println("Informe a quantia que deseja sacar: ");
+			double valor = teclado.nextDouble();
+			conta.sacar(valor);
+			break;
+		case 2:
+			System.out.println("Informe a quantia que deseja depositar: ");
+			double valor2 = teclado.nextDouble();
+			conta.depositar(valor2);
+			break;
+		case 3:
+			System.out.println("Informe a quantia que deseja transferir: ");
+			double valor3 = teclado.nextDouble();
+			System.out.println("Informe o numero da conta destino: ");
+			Conta contaDestino = agencia.acessarConta(teclado.nextInt());
+			conta.transferir(valor3, contaDestino);
+			break;
+		case 4:
+			System.out.println(conta.getMovimentacao());
+			break;
+		case 5:
+			menuGerenciarContas();
+		default:
+			System.out.println("Opção Inválida! Tente novamente!");
+			menuMovimentarConta();
+			break;
+		}
 	}
 
 	private static void menuMovimentarConta() {
+	
+		System.out.println("------------------------------------------------");
+		System.out.println("|Conta: " + conta.getNumeroConta()+"            |");
+		System.out.println("| 1 - Realizar Saque                           |");
+		System.out.println("| 2 - Realizar Deposito                        |");
+		System.out.println("| 3 - Realizar Transferencia                   |");
+		System.out.println("| 4 - Extrato Bancário                         |");
+		System.out.println("| 5 - Voltar                                   |");
+		System.out.println("|                                              |");
+		System.out.println("| Digite uma das opções acima.                 |");
+		System.out.println("------------------------------------------------");
 		
-		
+		movimentacaoConta();
 	}
 
-	public static Date conversorDeDatas(String data) throws ParseException {
+	public static Date conversorDeDatas(String data) {
+		Date dataFormatada = null;		
 		SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy");
-		Date dataFormatada = formatar.parse(data);
-		
+		try {
+			if (data.equals("")) {
+				throw new DataIncorreta("Data não verificavel!");
+			}else {
+				dataFormatada = formatar.parse(data);
+			}
+		} catch ( DataIncorreta di) {
+			di.getMessage();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return dataFormatada;
 	}
 }
