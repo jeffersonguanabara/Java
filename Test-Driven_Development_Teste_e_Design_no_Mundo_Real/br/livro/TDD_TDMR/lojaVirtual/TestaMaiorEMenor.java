@@ -1,8 +1,8 @@
 package br.livro.TDD_TDMR.lojaVirtual;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import junit.framework.Assert;
+import org.junit.Test;
 
 public class TestaMaiorEMenor {
 
@@ -16,8 +16,8 @@ public class TestaMaiorEMenor {
 		MaiorEMenor algoritmo = new MaiorEMenor();
 		algoritmo.encontra(carrinho);
 
-		Assert.assertEquals("Jogo de pratos", algoritmo.getMenor().getNome());
-		Assert.assertEquals("Geladeira", algoritmo.getMaior().getNome());
+		assertEquals("Jogo de pratos", algoritmo.getMenor().getNome());
+		assertEquals("Geladeira", algoritmo.getMaior().getNome());
 
 	}
 
@@ -31,10 +31,11 @@ public class TestaMaiorEMenor {
 		MaiorEMenor algoritmo = new MaiorEMenor();
 		algoritmo.encontra(carrinho);
 
-		Assert.assertEquals("Jogo de pratos", algoritmo.getMenor().getNome());
-		Assert.assertEquals("Geladeira", algoritmo.getMaior().getNome());
+		assertEquals("Jogo de pratos", algoritmo.getMenor().getNome());
+		assertEquals("Geladeira", algoritmo.getMaior().getNome());
 	}
 
+	
 	@Test
 	public void ordemVariada1() {
 		CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
@@ -45,10 +46,11 @@ public class TestaMaiorEMenor {
 		MaiorEMenor algoritmo = new MaiorEMenor();
 		algoritmo.encontra(carrinho);
 
-		Assert.assertEquals("Jogo de pratos", algoritmo.getMenor().getNome());
-		Assert.assertEquals("Geladeira", algoritmo.getMaior().getNome());
+		assertEquals("Jogo de pratos", algoritmo.getMenor().getNome());
+		assertEquals("Geladeira", algoritmo.getMaior().getNome());
 	}
 
+	
 	@Test
 	public void ordemVariada2() {
 		CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
@@ -59,10 +61,11 @@ public class TestaMaiorEMenor {
 		MaiorEMenor algoritmo = new MaiorEMenor();
 		algoritmo.encontra(carrinho);
 
-		Assert.assertEquals("Jogo de pratos", algoritmo.getMenor().getNome());
-		Assert.assertEquals("Geladeira", algoritmo.getMaior().getNome());
+		assertEquals("Jogo de pratos", algoritmo.getMenor().getNome());
+		assertEquals("Geladeira", algoritmo.getMaior().getNome());
 	}
 
+	
 	@Test
 	public void ordemVariada3() {
 		CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
@@ -73,10 +76,11 @@ public class TestaMaiorEMenor {
 		MaiorEMenor algoritmo = new MaiorEMenor();
 		algoritmo.encontra(carrinho);
 
-		Assert.assertEquals("Jogo de pratos", algoritmo.getMenor().getNome());
-		Assert.assertEquals("Geladeira", algoritmo.getMaior().getNome());
+		assertEquals("Jogo de pratos", algoritmo.getMenor().getNome());
+		assertEquals("Geladeira", algoritmo.getMaior().getNome());
 	}
 
+	
 	@Test
 	public void ordemVariada4() {
 		CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
@@ -87,10 +91,11 @@ public class TestaMaiorEMenor {
 		MaiorEMenor algoritmo = new MaiorEMenor();
 		algoritmo.encontra(carrinho);
 
-		Assert.assertEquals("Jogo de pratos", algoritmo.getMenor().getNome());
-		Assert.assertEquals("Geladeira", algoritmo.getMaior().getNome());
+		assertEquals("Jogo de pratos", algoritmo.getMenor().getNome());
+		assertEquals("Geladeira", algoritmo.getMaior().getNome());
 	}
 
+	
 	@Test
 	public void apenasUmProduto() {
 		CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
@@ -99,10 +104,11 @@ public class TestaMaiorEMenor {
 		MaiorEMenor algoritmo = new MaiorEMenor();
 		algoritmo.encontra(carrinho);
 
-		Assert.assertEquals("Liquidificador", algoritmo.getMenor().getNome());
-		Assert.assertEquals("Liquidificador", algoritmo.getMaior().getNome());
+		assertEquals("Liquidificador", algoritmo.getMenor().getNome());
+		assertEquals("Liquidificador", algoritmo.getMaior().getNome());
 	}
 
+	
 	@Test
 	public void apenasUmProduto1() {
 		CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
@@ -111,8 +117,8 @@ public class TestaMaiorEMenor {
 		MaiorEMenor algoritmo = new MaiorEMenor();
 		algoritmo.encontra(carrinho);
 
-		Assert.assertEquals("Jogo de pratos", algoritmo.getMenor().getNome());
-		Assert.assertEquals("Jogo de pratos", algoritmo.getMaior().getNome());
+		assertEquals("Jogo de pratos", algoritmo.getMenor().getNome());
+		assertEquals("Jogo de pratos", algoritmo.getMaior().getNome());
 	}
 
 	@Test
@@ -123,7 +129,7 @@ public class TestaMaiorEMenor {
 		MaiorEMenor algoritmo = new MaiorEMenor();
 		algoritmo.encontra(carrinho);
 
-		Assert.assertEquals("Geladeira", algoritmo.getMenor().getNome());
-		Assert.assertEquals("Geladeira", algoritmo.getMaior().getNome());
+		assertEquals("Geladeira", algoritmo.getMenor().getNome());
+		assertEquals("Geladeira", algoritmo.getMaior().getNome());
 	}
 }
