@@ -8,7 +8,7 @@ public class Telefonista extends Funcionario {
 	public String toString() {
 		String s = "";
 		s = super.toString() + 
-				"Código de Estação de Trabalho: " + this.codigoDeEstacaoDeTrabalho + "\n";
+				"CÃ³digo de EstaÃ§Ã£o de Trabalho: " + this.codigoDeEstacaoDeTrabalho + "\n";
 		return s;
 	}
 	

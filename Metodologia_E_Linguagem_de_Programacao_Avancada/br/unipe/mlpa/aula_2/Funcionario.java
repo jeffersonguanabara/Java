@@ -13,7 +13,7 @@ public class Funcionario {
 	public String toString() {
 		String s = "";
 		s = "Nome: " + this.getNome() + "\n" +
-				"Sal·rio: " + this.getSalario() + "\n";
+				"Sal√°rio: " + this.getSalario() + "\n";
 		return s;
 	}
 	

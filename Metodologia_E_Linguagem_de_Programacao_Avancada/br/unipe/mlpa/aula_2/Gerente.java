@@ -31,4 +31,6 @@ public class Gerente extends Funcionario{
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
+	
 }

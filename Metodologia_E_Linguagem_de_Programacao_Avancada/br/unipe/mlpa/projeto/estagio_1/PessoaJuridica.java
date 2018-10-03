@@ -1,11 +1,5 @@
 package br.unipe.mlpa.projeto.estagio_1;
 
-/*
- * Alunos: Aline Myrtes
- * 		   Jefferson Guanabara
- */
-
-
 public class PessoaJuridica extends Pessoa{
 
 	private long cnpj;

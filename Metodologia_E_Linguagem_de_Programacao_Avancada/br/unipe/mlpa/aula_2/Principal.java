@@ -21,8 +21,8 @@ public class Principal {
 		telefonista.setSalario(1000.0);
 		telefonista.setCodigoDeEstacaoDeTrabalho(102);
 		
-		System.out.println(gerente + "BonificaÁ„o do(a) Gerente: " + gerente.calculaBonificacao() + "\n");
-		System.out.println(secretaria + "BonificaÁ„o do(a) Secret·rio(a): " + secretaria.calculaBonificacao() + "\n");
-		System.out.println(telefonista + "BonificaÁ„o do(a) Telefonista: " + telefonista.calculaBonificacao());
+		System.out.println(gerente + "Bonifica√ß√£o do(a) Gerente: " + gerente.calculaBonificacao() + "\n");
+		System.out.println(secretaria + "Bonifica√ß√£o do(a) Secret√°rio(a): " + secretaria.calculaBonificacao() + "\n");
+		System.out.println(telefonista + "Bonifica√ß√£o do(a) Telefonista: " + telefonista.calculaBonificacao());
 	}
 }

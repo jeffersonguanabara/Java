@@ -5,11 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-/*
- * Alunos: Aline Myrtes
- * 		   Jefferson Guanabara
- */
-
 public class Movimento {
 
 	private int tipo;

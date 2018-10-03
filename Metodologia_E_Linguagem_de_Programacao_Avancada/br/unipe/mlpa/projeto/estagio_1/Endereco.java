@@ -1,10 +1,5 @@
 package br.unipe.mlpa.projeto.estagio_1;
 
-/*
- * Alunos: Aline Myrtes
- * 		   Jefferson Guanabara
- */
-
 public class Endereco {
 
 	private String rua;
