@@ -3,6 +3,11 @@ package br.unipe.mlpa.projeto.estagio_1;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * Alunos: Aline Myrtes
+ * 		   Jefferson Guanabara
+ */
+
 public class Agencia {
 
 	private long numero;
@@ -12,6 +17,13 @@ public class Agencia {
 	public Agencia() {
 		// TODO Auto-generated constructor stub
 		this.contas = new ArrayList<Conta>();
+	}
+	
+	public Agencia(long numero, Endereco endereco) {
+		super();
+		this.numero = numero;
+		this.contas = new ArrayList<Conta>();
+		this.endereco = endereco;
 	}
 	
 	public Agencia(long numero, List<Conta> contas, Endereco endereco) {
@@ -67,6 +79,7 @@ public class Agencia {
 	}
 	
 	public long numeroDaContaNaAgencia () {
+		//System.out.println(contas.size());
 		return contas.size() + 1;
 	}
 

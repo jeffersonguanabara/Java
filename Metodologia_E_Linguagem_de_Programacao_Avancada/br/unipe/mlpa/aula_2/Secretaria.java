@@ -8,7 +8,7 @@ public class Secretaria extends Funcionario {
 	public String toString() {
 		String s = "";
 		s = super.toString() +
-				"NÃºmero de Ramal: " + this.numeroDeRamal + "\n";
+				"Número de Ramal: " + this.numeroDeRamal + "\n";
 		return s;
 	}
 

@@ -1,5 +1,11 @@
 package br.unipe.mlpa.projeto.estagio_1;
 
+/*
+ * Alunos: Aline Myrtes
+ * 		   Jefferson Guanabara
+ */
+
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
