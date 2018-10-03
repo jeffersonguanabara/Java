@@ -10,11 +10,16 @@ import java.util.concurrent.SynchronousQueue;
 import br.unipe.mlpa.exercicioExcecoes.Exceptions.AgenciaInexistente;
 import br.unipe.mlpa.exercicioExcecoes.Exceptions.DataIncorreta;
 
+/*
+ * Alunos: Aline Myrtes
+ * 		   Jefferson Guanabara
+ */
+
+
 public class Principal {
 	
 	// Criando e instanciando uma variável de entrada de dados do tipo Scanner.
-	static Scanner teclado = new Scanner(System.in);
-	
+		
 	// Criando as instancias do sistema e atribuindo o valor "null" a elas.
 	static Agencia agencia = null;
 	static Pessoa pessoa = null;
@@ -31,7 +36,9 @@ public class Principal {
 		 * atribuindo o valor zero (0) a variável "opcaoMenu".
 		 */
 		int opcaoMenu = 0;
-		
+		Scanner teclado = new Scanner(System.in);
+		endereco = new Endereco("Av. Epitácio Pessoa", 58056000, "Expedicionario", 2000, "João Pessoa");
+		agencia = new Agencia(1234, endereco);
 		/* Criando um laço de repetição (Do..While)
 		 * O loop só será quebrado quando o valor inteiro 4 for informado
 		 */
@@ -62,6 +69,7 @@ public class Principal {
 	}
 	
 	private static void cadastrarConta() {
+		Scanner teclado = new Scanner(System.in);
 		
 		conta = new Conta();
 		System.out.println("------------------------------------------------");
@@ -82,7 +90,7 @@ public class Principal {
 		conta.setNumeroConta(agencia.numeroDaContaNaAgencia());
 		
 		// ativando a conta
-		conta.setSituacao(1);
+		conta.setSituacao(Integer.parseInt("1"));
 		
 		// informando senha para conta
 		System.out.println("Senha: ");
@@ -90,7 +98,7 @@ public class Principal {
 		
 		// data de abertura
 		System.out.println("Data de Abertura: (OBS.: Formato: dd/MM/yyyy)");
-		conta.setDataAbertura(conversorDeDatas(teclado.next()));
+		conta.setDataAbertura(conversorDeDatas(teclado.nextLine()));
 		
 		// date de fechamento
 		//System.out.println("Data de Fechamento: (OBS.: Formato: dd/MM/yyyy)");
@@ -98,8 +106,8 @@ public class Principal {
 		
 		
 		// numero da Agencia
-		System.out.println("Número da Agencia:");
-		cadastrarAgencia(teclado.nextInt(), conta);
+		//System.out.println("Número da Agencia:");
+		cadastrarAgencia(1234, conta);
 		
 		System.out.println("------------------------------------------------");
 		
@@ -120,13 +128,15 @@ public class Principal {
 
 	private static PessoaJuridica cadastrarPessoaJuridica() {
 		
+		Scanner teclado = new Scanner(System.in);
+		
 		pessoaJuridica = new PessoaJuridica();
 		
 		System.out.println("------------------------------------------------");
 		System.out.println("Informe o nome do Cliente: ");
-		pessoaJuridica.setNome(teclado.next());
+		pessoaJuridica.setNome(teclado.nextLine());
 		System.out.println("Informe o CNJP: ");
-		pessoaJuridica.setCnpj(teclado.nextLong());
+		pessoaJuridica.setCnpj(Long.parseLong(teclado.nextLine()));
 		System.out.println("Informe a Renda da Empresa: ");
 		pessoaJuridica.setRendaPessoa(teclado.nextFloat());
 		
@@ -140,13 +150,16 @@ public class Principal {
 	@SuppressWarnings("unused")
 	private static PessoaFisica cadastrarPessoaFisica() {
 		
+		Scanner teclado = new Scanner(System.in);
+		
 		pessoaFisica = new PessoaFisica();
 		
 		System.out.println("------------------------------------------------");
 		System.out.println("Informe o nome do Cliente: ");
-		pessoaFisica.setNome(teclado.next());
+		pessoaFisica.setNome(teclado.nextLine());
+		System.out.println();
 		System.out.println("Informe o CPF: ");
-		pessoaFisica.setCpf(teclado.nextLong());
+		pessoaFisica.setCpf(Long.parseLong(teclado.nextLine()));
 		System.out.println("Informe o RG: ");
 		pessoaFisica.setRg(teclado.nextLong());
 		System.out.println("Informe a Renda da Empresa: ");
@@ -171,19 +184,22 @@ public class Principal {
 	}
 	
 	private static Endereco cadastrarEndereco() {
+		
+		Scanner teclado = new Scanner(System.in);
+		
 		endereco = new Endereco();
 		
 		System.out.println("------------------------------------------------");
 		System.out.println("ENDEREÇO");
 		System.out.println("------------------------------------------------");
 		System.out.println("Logradouro: ");
-		endereco.setRua(teclado.next());
+		endereco.setRua(teclado.nextLine());
 		System.out.println("Número: ");
-		endereco.setNumero(teclado.nextInt());
+		endereco.setNumero(Integer.parseInt(teclado.nextLine()));
 		System.out.println("Bairro: ");
-		endereco.setBairro(teclado.next());
+		endereco.setBairro(teclado.nextLine());
 		System.out.println("Cidade: ");
-		endereco.setCidade(teclado.next());
+		endereco.setCidade(teclado.nextLine());
 		System.out.println("CEP: ");
 		endereco.setCep(teclado.nextLong());
 		
@@ -218,6 +234,9 @@ public class Principal {
 	}
 	
 	public static void acessarUmaConta() {
+		
+		Scanner teclado = new Scanner(System.in);
+		
 		System.out.println("------------------------------------------------");
 		System.out.println("Digite o número da CONTA:");
 		int numero = teclado.nextInt();
@@ -234,6 +253,7 @@ public class Principal {
 	
 	private static void movimentacaoConta() {
 		
+		Scanner teclado = new Scanner(System.in);
 		int opcao = 0;
 		opcao = teclado.nextInt();
 		switch (opcao) {
