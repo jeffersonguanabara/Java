@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
-import java.util.concurrent.SynchronousQueue;
+
 
 import br.unipe.mlpa.exercicioExcecoes.Exceptions.AgenciaInexistente;
 import br.unipe.mlpa.exercicioExcecoes.Exceptions.DataIncorreta;
