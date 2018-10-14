@@ -29,6 +29,19 @@ public class Principal {
 			
 			System.out.println(pessoa.buscarPorRG("23"));
 			
+			PessoaDAO p1 = new PessoaDAO();
+			
+			p1.setNome("Paulo");
+			p1.setCpf("22222222222");
+			p1.setRg("654321");
+			p1.setIdade("18");
+			
+			p1.adicionar(p1);
+			
+			System.out.println(p1.listar());
+			
+			System.out.println(p1.buscarPorNome("ulo"));
+			System.out.println(p1.buscarPorRG("43"));
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
