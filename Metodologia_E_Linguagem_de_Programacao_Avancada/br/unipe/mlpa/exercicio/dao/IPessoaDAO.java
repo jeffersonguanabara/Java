@@ -11,5 +11,9 @@ public interface IPessoaDAO {
 	public ArrayList<PessoaDAO> listar();
 	
 	public void alterar(PessoaDAO pessoa);
+	
+	public PessoaDAO buscarPorNome(String nome);
+	
+	public PessoaDAO buscarPorRG(String RG);
 
 }

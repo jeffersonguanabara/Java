@@ -14,6 +14,8 @@ public class PessoaDAO implements IPessoaDAO {
 	private String rg;
 	private String idade;
 	
+	public IComandosSQL comandos = new ComandosSQL();
+	
 	public PessoaDAO() {
 		
 	}
@@ -37,7 +39,7 @@ public class PessoaDAO implements IPessoaDAO {
 	public void adicionar(PessoaDAO pessoa) {
 		
 		try (Connection conn = new ConnectionFactory().getConnection()){
-			PreparedStatement ps = conn.prepareStatement("insert into Pessoa (nome, cpf, rg, idade) values (?,?,?,?)");
+			PreparedStatement ps = conn.prepareStatement(comandos.insertTable());
 			ps.setString(1, pessoa.getNome());
 			ps.setString(2, pessoa.getCpf());
 			ps.setString(3, pessoa.getRg());
@@ -51,9 +53,8 @@ public class PessoaDAO implements IPessoaDAO {
 
 	@Override
 	public void remover(PessoaDAO pessoa) {
-		String sql = "delete from Pessoa where cpf = ?";
 		try(Connection conn = new ConnectionFactory().getConnection()) {
-			PreparedStatement ps = conn.prepareStatement(sql);
+			PreparedStatement ps = conn.prepareStatement(comandos.removeOfTable());
 			ps.setString(1, pessoa.getCpf());
 			ps.execute();
 			ps.close();
@@ -67,10 +68,9 @@ public class PessoaDAO implements IPessoaDAO {
 	@Override
 	public ArrayList<PessoaDAO> listar() {
 		ArrayList<PessoaDAO> lista = new ArrayList<PessoaDAO>();
-		String sql = "select * from Pessoa";
 		PreparedStatement ps;
 		try (Connection conn = new ConnectionFactory().getConnection()) {
-			ps = conn.prepareStatement(sql);
+			ps = conn.prepareStatement(comandos.listOfTable());
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				PessoaDAO pessoa = new PessoaDAO();
@@ -90,9 +90,8 @@ public class PessoaDAO implements IPessoaDAO {
 
 	@Override
 	public void alterar(PessoaDAO pessoa) {
-		String sql = "update Pessoa set nome = ?, cpf = ?, rg = ?, idade = ?";
 		try(Connection conn = new ConnectionFactory().getConnection()) {
-			PreparedStatement ps = conn.prepareStatement(sql);
+			PreparedStatement ps = conn.prepareStatement(comandos.updateTable());
 			ps.setString(1,  pessoa.getNome());
 			ps.setString(2, pessoa.getCpf());
 			ps.setString(2,  pessoa.getRg());
@@ -144,6 +143,50 @@ public class PessoaDAO implements IPessoaDAO {
 
 	public void setIdade(String idade) {
 		this.idade = idade;
+	}
+
+	@Override
+	public PessoaDAO buscarPorNome(String nome) {
+		PessoaDAO pessoa = new PessoaDAO();
+		try(Connection conn = new ConnectionFactory().getConnection()) {
+			PreparedStatement ps = conn.prepareStatement(comandos.getOfTableName());
+			ps.setString(1, nome);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()){
+				pessoa.setNome(rs.getString("nome"));
+				pessoa.setCpf(rs.getString("cpf"));
+				pessoa.setRg(rs.getString("rg"));
+				pessoa.setIdade(rs.getString("idade"));
+			}
+			rs.close();
+			ps.close();				
+		} catch (SQLException e) {
+			System.out.println("Error: pessoa não encontrada!");
+			e.getMessage();
+		}	
+		return pessoa;
+	}
+
+	@Override
+	public PessoaDAO buscarPorRG(String RG) {
+		PessoaDAO pessoa = new PessoaDAO();
+		try(Connection conn = new ConnectionFactory().getConnection()) {
+			PreparedStatement ps = conn.prepareStatement(comandos.getOfTableRG());
+			ps.setString(1, RG);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()){
+				pessoa.setNome(rs.getString("nome"));
+				pessoa.setCpf(rs.getString("cpf"));
+				pessoa.setRg(rs.getString("rg"));
+				pessoa.setIdade(rs.getString("idade"));
+			}
+			rs.close();
+			ps.close();				
+		} catch (SQLException e) {
+			System.out.println("Error: pessoa não encontrada!");
+			e.getMessage();
+		}	
+		return pessoa;
 	}
 
 }

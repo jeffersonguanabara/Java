@@ -19,7 +19,7 @@ public class ConnectionFactory {
 			
 			conn = DriverManager.getConnection(url, "root", "#@80821062JG");
 			
-			status = "Conex„o aberta!";
+			status = "Conex√£o aberta!";
 		} catch (SQLException e) {
 			status = e.getMessage();
 		} 
