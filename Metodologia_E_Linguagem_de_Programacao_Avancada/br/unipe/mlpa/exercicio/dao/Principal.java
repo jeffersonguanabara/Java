@@ -3,7 +3,7 @@ package br.unipe.mlpa.exercicio.dao;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class TestaConexao {
+public class Principal {
 
 	public static void main(String[] args) {
 				
@@ -19,15 +19,15 @@ public class TestaConexao {
 			
 			//pessoa.adicionar(pessoa);
 			
-			System.out.println(pessoa.listar());
+			//System.out.println(pessoa.listar());
 			
 			pessoa.setCpf("11111111111");
 			
 			//pessoa.remover(pessoa);
 			
-			System.out.println(pessoa.buscarPorNome("Jefferson"));
+			System.out.println(pessoa.buscarPorNome("eff"));
 			
-			System.out.println(pessoa.buscarPorRG("12345"));
+			System.out.println(pessoa.buscarPorRG("23"));
 			
 			conn.close();
 		} catch (SQLException e) {

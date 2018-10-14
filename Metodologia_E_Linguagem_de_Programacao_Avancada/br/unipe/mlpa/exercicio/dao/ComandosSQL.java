@@ -15,7 +15,9 @@ public class ComandosSQL implements IComandosSQL{
 				+ "nome varchar(60) not null,"
 				+ "cpf varchar(11) not null unique,"
 				+ "rg varchar(15) not null,"
-				+ "idade varchar(3) not null)";
+				+ "idade varchar(3) not null,"
+				+ "constraint PK_id_pessoa primary key(id_pessoa)"
+				+ ")";
 				
 		return sql;
 	}
@@ -42,12 +44,12 @@ public class ComandosSQL implements IComandosSQL{
 
 	@Override
 	public String getOfTableName() {
-		return "select * from pessoa where nome = ?";
+		return "select * from pessoa where nome LIKE ?";
 	}
 
 	@Override
 	public String getOfTableRG() {
-		return "select * from pessoa where rg = ?";
+		return "select * from pessoa where rg LIKE ?";
 	}
 
 }

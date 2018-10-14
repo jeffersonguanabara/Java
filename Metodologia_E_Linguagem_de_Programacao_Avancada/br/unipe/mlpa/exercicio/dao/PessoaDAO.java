@@ -146,17 +146,19 @@ public class PessoaDAO implements IPessoaDAO {
 	}
 
 	@Override
-	public PessoaDAO buscarPorNome(String nome) {
-		PessoaDAO pessoa = new PessoaDAO();
+	public ArrayList<PessoaDAO> buscarPorNome(String nome) {
+		ArrayList<PessoaDAO> pessoas = new ArrayList<PessoaDAO>();
 		try(Connection conn = new ConnectionFactory().getConnection()) {
 			PreparedStatement ps = conn.prepareStatement(comandos.getOfTableName());
-			ps.setString(1, nome);
+			ps.setString(1, "%"+nome+"%");
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()){
+				PessoaDAO pessoa = new PessoaDAO();
 				pessoa.setNome(rs.getString("nome"));
 				pessoa.setCpf(rs.getString("cpf"));
 				pessoa.setRg(rs.getString("rg"));
 				pessoa.setIdade(rs.getString("idade"));
+				pessoas.add(pessoa);
 			}
 			rs.close();
 			ps.close();				
@@ -164,21 +166,23 @@ public class PessoaDAO implements IPessoaDAO {
 			System.out.println("Error: pessoa não encontrada!");
 			e.getMessage();
 		}	
-		return pessoa;
+		return pessoas;
 	}
 
 	@Override
-	public PessoaDAO buscarPorRG(String RG) {
-		PessoaDAO pessoa = new PessoaDAO();
+	public ArrayList<PessoaDAO> buscarPorRG(String RG) {
+		ArrayList<PessoaDAO> pessoas = new ArrayList<PessoaDAO>();
 		try(Connection conn = new ConnectionFactory().getConnection()) {
 			PreparedStatement ps = conn.prepareStatement(comandos.getOfTableRG());
-			ps.setString(1, RG);
+			ps.setString(1, "%"+RG+"%");
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()){
+				PessoaDAO pessoa = new PessoaDAO();
 				pessoa.setNome(rs.getString("nome"));
 				pessoa.setCpf(rs.getString("cpf"));
 				pessoa.setRg(rs.getString("rg"));
 				pessoa.setIdade(rs.getString("idade"));
+				pessoas.add(pessoa);
 			}
 			rs.close();
 			ps.close();				
@@ -186,7 +190,31 @@ public class PessoaDAO implements IPessoaDAO {
 			System.out.println("Error: pessoa não encontrada!");
 			e.getMessage();
 		}	
-		return pessoa;
+		return pessoas;
+	}
+	
+	public void criarBancoDeDados() {
+		
+		try(Connection conn = new ConnectionFactory().getConnection()) {
+			PreparedStatement ps = conn.prepareStatement(comandos.createDatabase());
+			ps.executeQuery();
+			ps.close();
+		} catch (SQLException e) {
+			System.out.println("Error: Não foi possível criar a base de dados!");
+			e.getMessage();
+		}
+	}
+	
+	public void criarTabelaPessoa() {
+		
+		try(Connection conn = new ConnectionFactory().getConnection()) {
+			PreparedStatement ps = conn.prepareStatement(comandos.createTable());
+			ps.executeQuery();
+			ps.close();
+		} catch (SQLException e) {
+			System.out.println("Error: Não foi possível criar a base de dados!");
+			e.getMessage();
+		}
 	}
 
 }
