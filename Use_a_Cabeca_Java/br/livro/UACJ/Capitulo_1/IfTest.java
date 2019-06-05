@@ -8,8 +8,8 @@ public class IfTest {
 		if (x == 3)
 			System.out.println("x deve ser igual a 3");
 		else
-			System.out.println("x n„o È igual a 3");
+			System.out.println("x n√£o √© igual a 3");
 
-		System.out.println("Isso ser· executado de qualquer forma");
+		System.out.println("Isso ser√° executado de qualquer forma");
 	}
 }

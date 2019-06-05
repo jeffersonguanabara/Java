@@ -2,15 +2,15 @@ package br.livro.UACJ.Capitulo_1;
 
 public class PhraseOMatic {
 	public static void main(String[] args) {
-		String[] wordListOne = { "24/7", "v·rias camadas", "30.000 p„es", "B-to-B", "todos ganham", "front-end",
-				"baseado na web", "difundido", "inteligente", "seis sigma", "caminho crÌtico", "din‚mico" };
+		String[] wordListOne = { "24/7", "v√°rias camadas", "30.000 p√©s", "B-to-B", "todos ganham", "front-end",
+				"baseado na web", "difundido", "inteligente", "seis sigma", "caminho cr√≠tico", "din√¢mico" };
 
-		String[] wordListTwo = { "habilitado", "adesivo", "valor agregado", "orientado", "central", "distribuÌdo",
-				"agrupado", "solidificado", "independente de m·quina", "posicionado", "em rede", "dedicado",
+		String[] wordListTwo = { "habilitado", "adesivo", "valor agregado", "orientado", "central", "distribu√≠do",
+				"agrupado", "solidificado", "independente de m√°quina", "posicionado", "em rede", "dedicado",
 				"alavancado", "alinhado", "destinado", "compartilhado", "cooperativo", "acelerado" };
 
-		String[] wordListTree = { "processo", "ponto m·ximo", "soluÁ„o", "arquitetura", "habilitaÁ„o no n˙cleo",
-				"estratÈgia", "mindshare", "portal", "espaÁo", "vis„o", "paradigma", "miss„o" };
+		String[] wordListTree = { "processo", "ponto m√°ximo", "solu√ß√£o", "arquitetura", "habilita√ß√£o no n√∫cleo",
+				"estrat√©gia", "mindshare", "portal", "espa√ßo", "vis√£o", "paradigma", "miss√£o" };
 
 		int oneLength = wordListOne.length;
 		int twoLength = wordListTwo.length;
